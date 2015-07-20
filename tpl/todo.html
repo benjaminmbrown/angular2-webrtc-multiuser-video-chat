@@ -24,4 +24,6 @@
 <div *ng-for='#todo of todos'><input type='checkbox' [checked]='todo.done' (click)='toggleTodoState(todo)'/> 
     <span [class.done]='todo.done'>{{todo.text}}</span>
 </div>
-<p><input #todotext> <button (click)='addTodo(todotext.value)'>Add ToDo</button>;
+<p><input #todotext> <button (click)='addTodo(todotext.value)'>Add ToDo</button>
+
+<span>test</span>
