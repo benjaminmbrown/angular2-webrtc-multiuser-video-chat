@@ -12,9 +12,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /// <reference path="typings/angular2/angular2.d.ts" />
 var angular2_1 = require('angular2/angular2');
 var TodoAppComponent = (function () {
-    //todoStore: TodoStore;
     function TodoAppComponent() {
-        this.name = 'ben';
+        this.name = 'Ben';
         this.todos = [{ text: 'Buy mom flowers', done: false }, { text: 'Grab bulls tix', done: false }, { text: 'Eat food', done: false }];
     }
     TodoAppComponent.prototype.addTodo = function (todo) {
