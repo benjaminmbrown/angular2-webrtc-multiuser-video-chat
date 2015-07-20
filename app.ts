@@ -8,7 +8,7 @@ import {Component, Template, View, bootstrap, NgFor, NgIf} from 'angular2/angula
 	directives: [NgFor, NgIf];
 })
 
-class TodoAppComponent{
+class TodoAppComponent{ 
 	todos: Array<string>;
 
 	name: string;
