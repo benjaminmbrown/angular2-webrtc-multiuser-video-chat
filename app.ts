@@ -4,10 +4,7 @@ import {Component, Template, View, bootstrap, NgFor, NgIf} from 'angular2/angula
 	selector:'todo-app'
 })
 @View({
-	template: "<h1>Simple Todo App in Angular 2 by {{name}}</h1>"+
-
-				"<div *ng-for='#todo of todos'><input type='checkbox' [checked]='todo.done' (click)='toggleTodoState(todo)'/> <span [class.done]='todo.done'>{{todo.text}}</span></div>"+
-				"<p><input #todotext> <button (click)='addTodo(todotext.value)'>Add ToDo</button>";
+	templateUrl: 'tpl/todo.html',
 	directives: [NgFor, NgIf];
 })
 
@@ -22,14 +19,9 @@ class TodoAppComponent{
 		this.todos = [{ text: 'Buy mom flowers', done: false }, { text: 'Grab bulls tix', done: false }, { text: 'Eat food', done: false }]; 
 	}
  
-	// constructor(todoStore: TodoStore){
-	// 	this.name = 'Ben';
-	// 	this.todoStore = todoStore;
-	// }
-
 	addTodo(todo:string){
-		this.todos.unshift({ text:todo, done:false})
-	//	this.todos.push(todo);
+		this.todos.unshift({ text: todo, done: false });
+
 	}
 
 	toggleTodoState(todo){

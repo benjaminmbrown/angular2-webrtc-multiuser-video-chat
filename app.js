@@ -17,13 +17,8 @@ var TodoAppComponent = (function () {
         this.name = 'ben';
         this.todos = [{ text: 'Buy mom flowers', done: false }, { text: 'Grab bulls tix', done: false }, { text: 'Eat food', done: false }];
     }
-    // constructor(todoStore: TodoStore){
-    // 	this.name = 'Ben';
-    // 	this.todoStore = todoStore;
-    // }
     TodoAppComponent.prototype.addTodo = function (todo) {
         this.todos.unshift({ text: todo, done: false });
-        //	this.todos.push(todo);
     };
     TodoAppComponent.prototype.toggleTodoState = function (todo) {
         todo.done = !todo.done;
@@ -39,9 +34,7 @@ var TodoAppComponent = (function () {
             selector: 'todo-app'
         }),
         angular2_1.View({
-            template: "<h1>Simple Todo App in Angular 2 by {{name}}</h1>" +
-                "<div *ng-for='#todo of todos'><input type='checkbox' [checked]='todo.done' (click)='toggleTodoState(todo)'/> <span [class.done]='todo.done'>{{todo.text}}</span></div>" +
-                "<p><input #todotext> <button (click)='addTodo(todotext.value)'>Add ToDo</button>",
+            templateUrl: 'tpl/todo.html',
             directives: [angular2_1.NgFor, angular2_1.NgIf]
         }), 
         __metadata('design:paramtypes', [])
