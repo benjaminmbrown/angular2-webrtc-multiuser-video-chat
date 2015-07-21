@@ -11,20 +11,20 @@ import {Component, Template, View, bootstrap, NgFor, NgIf} from 'angular2/angula
 class MultiChatComponent{ 
 	todos: Array<string>;
 	name: string;
-	room: string;
-
 
 	constructor(){
-		this.room = location.search && location.search.split('?')[1];
-
+		this.name = 'Ben';
 		
-
-		webrtc.on('readyTocall',function(){
-			if (room) webrtc.joinRoom(room);
-		});
+		this.todos = [{ text: 'Buy mom flowers', done: false }, { text: 'Grab bulls tix', done: false }, { text: 'Eat food', done: false }]; 
 	}
  
+	addTodo(todo:string){
+		this.todos.unshift({ text: todo, done: false });
+	}
 
+	toggleTodoState(todo){
+		todo.done = !todo.done;
+	}
 	
 	doneTyping($event){
 		if($event.which ===13){

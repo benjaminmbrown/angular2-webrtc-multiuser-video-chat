@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>Multiuser Video Chat with SimpleWebRTC</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="http://simplewebrtc.com/latest.js"></script>
   <script src="/js/multiuser-chat"></script>
 
@@ -15,10 +15,21 @@
 
 
 </head>
+ <style>
+            #remoteVideos video {
+                height: 150px;
+            }
+            #localVideo {
+                height: 150px;
+            }
+        </style>
+
 <body>
 
   <!-- The app component created in app.ts -->
   <multi-chat></multi-chat>
+
+  <script src="/js/multiuser-chat.js"></script> 
   <script src="app.js"></script> 
   <script>System.import('app');</script>  
 

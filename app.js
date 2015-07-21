@@ -13,12 +13,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var angular2_1 = require('angular2/angular2');
 var MultiChatComponent = (function () {
     function MultiChatComponent() {
-        this.room = location.search && location.search.split('?')[1];
-        webrtc.on('readyTocall', function () {
-            if (room)
-                webrtc.joinRoom(room);
-        });
+        this.name = 'Ben';
+        this.todos = [{ text: 'Buy mom flowers', done: false }, { text: 'Grab bulls tix', done: false }, { text: 'Eat food', done: false }];
     }
+    MultiChatComponent.prototype.addTodo = function (todo) {
+        this.todos.unshift({ text: todo, done: false });
+    };
+    MultiChatComponent.prototype.toggleTodoState = function (todo) {
+        todo.done = !todo.done;
+    };
     MultiChatComponent.prototype.doneTyping = function ($event) {
         if ($event.which === 13) {
             this.addTodo($event.target.value);

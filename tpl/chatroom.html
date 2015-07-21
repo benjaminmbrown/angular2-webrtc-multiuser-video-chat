@@ -2,9 +2,6 @@
 
 
 <div class="row">
-
-	<div class="col-md-4"><video id="localVideo"></video>Vid</div>
-
 	<div class="col-md-4">
 		<form id = "createRoom">
 			<input id="sessionInput"/>
@@ -14,15 +11,20 @@
 
 	<div class="col-md-4">
 		<button id="screenShareButton"></button><br>
-		<span id="subTitle">(https required for screenshare)</span>\
+		<span id="subTitle">(https required for screenshare)</span>
 		<div id="roomLink">room link</div>
 	</div>
 
 </div>
 
 <div class="row">
-	<div class ="col-md-12">
-	<div id="remoteVideos">Remote Videos</div>
+	<div class="col-md-2">
+		<div class="panel panel-default">My vid<video id="localVideo"></video></div>
+	</div>
+	<div class ="col-md-10">
+		<div class="panel panel-default">
+			<div id="remoteVideos">Remote Videos</div>
+		</div>
 	</div>
 
 </div>
