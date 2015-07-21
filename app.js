@@ -11,33 +11,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 /// <reference path="typings/angular2/angular2.d.ts" />
 var angular2_1 = require('angular2/angular2');
-var TodoAppComponent = (function () {
-    function TodoAppComponent() {
-        this.name = 'Ben';
-        this.todos = [{ text: 'Buy mom flowers', done: false }, { text: 'Grab bulls tix', done: false }, { text: 'Eat food', done: false }];
+var MultiChatComponent = (function () {
+    function MultiChatComponent() {
+        this.room = location.search && location.search.split('?')[1];
+        webrtc.on('readyTocall', function () {
+            if (room)
+                webrtc.joinRoom(room);
+        });
     }
-    TodoAppComponent.prototype.addTodo = function (todo) {
-        this.todos.unshift({ text: todo, done: false });
-    };
-    TodoAppComponent.prototype.toggleTodoState = function (todo) {
-        todo.done = !todo.done;
-    };
-    TodoAppComponent.prototype.doneTyping = function ($event) {
+    MultiChatComponent.prototype.doneTyping = function ($event) {
         if ($event.which === 13) {
             this.addTodo($event.target.value);
             $event.target.value = null;
         }
     };
-    TodoAppComponent = __decorate([
+    MultiChatComponent = __decorate([
         angular2_1.Component({
-            selector: 'todo-app'
+            selector: 'multi-chat'
         }),
         angular2_1.View({
-            templateUrl: 'tpl/todo.html',
+            templateUrl: 'tpl/chatroom.html',
             directives: [angular2_1.NgFor, angular2_1.NgIf]
         }), 
         __metadata('design:paramtypes', [])
-    ], TodoAppComponent);
-    return TodoAppComponent;
+    ], MultiChatComponent);
+    return MultiChatComponent;
 })();
-angular2_1.bootstrap(TodoAppComponent);
+angular2_1.bootstrap(MultiChatComponent);

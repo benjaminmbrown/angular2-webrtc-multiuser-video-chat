@@ -1,29 +1,30 @@
 /// <reference path="typings/angular2/angular2.d.ts" />
 import {Component, Template, View, bootstrap, NgFor, NgIf} from 'angular2/angular2';
 @Component({
-	selector:'todo-app'
+	selector:'multi-chat'
 })
 @View({
-	templateUrl: 'tpl/todo.html',
+	templateUrl: 'tpl/chatroom.html',
 	directives: [NgFor, NgIf];
 })
 
-class TodoAppComponent{ 
+class MultiChatComponent{ 
 	todos: Array<string>;
 	name: string;
+	room: string;
+
 
 	constructor(){
-		this.name = 'Ben';
-		this.todos = [{ text: 'Buy mom flowers', done: false }, { text: 'Grab bulls tix', done: false }, { text: 'Eat food', done: false }]; 
+		this.room = location.search && location.search.split('?')[1];
+
+		
+
+		webrtc.on('readyTocall',function(){
+			if (room) webrtc.joinRoom(room);
+		});
 	}
  
-	addTodo(todo:string){
-		this.todos.unshift({ text: todo, done: false });
-	}
 
-	toggleTodoState(todo){
-		todo.done = !todo.done;
-	}
 	
 	doneTyping($event){
 		if($event.which ===13){
@@ -33,4 +34,4 @@ class TodoAppComponent{
 	}
 }
 
-bootstrap(TodoAppComponent);
+bootstrap(MultiChatComponent);
