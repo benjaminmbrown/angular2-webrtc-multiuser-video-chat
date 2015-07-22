@@ -24,6 +24,7 @@ webrtc.on('readyToCall', function(){
 
 //Set room names
 function setRoom(name){
+	console.log('setting room');
  	$('form').remove();
  	$('h1').text("Welcome to room:" + name);
  	$('#subTitle').text('Share this link with friends');
@@ -39,9 +40,11 @@ if(room){
 }
 else{ //if no room, create one when user submits the form
 	$('form').submit(function(){
+			alert('sup');
 		var val = $('#sessionInput').val().toLowerCase().replace(/\s/g, '-');
 		webrtc.createRoom(val, function(err,name){
 			var newUrl = location.pathname + '?' + name;
+			alert(newUrl);
 			if(!err){
 				history.replaceState({foo:'bar'}, null, newUrl);
 				setRoom(name);
