@@ -5,7 +5,7 @@ window.onload = function(){
 //Grab the room name from the URL
 var room = location.search && location.search.split('?')[1];
 
-
+console.log("room: ", room);
 //Create WebRTC Connection
 
 var webrtc = new SimpleWebRTC({
@@ -19,6 +19,7 @@ var webrtc = new SimpleWebRTC({
 
 //When ready, and we have a room from URL, join call
 webrtc.on('readyToCall', function(){
+	console.log("call ready, joining room");
 	if(room) webrtc.joinRoom(room)
 })
 
@@ -36,11 +37,12 @@ function setRoom(name){
 //if a room exists, show it in UI
 
 if(room){
+	console.log('Room exists.');
 	setRoom(room);
 }
 else{ //if no room, create one when user submits the form
 	$('form').submit(function(){
-			alert('sup');
+			console.log('creating room on user submit');
 		var val = $('#sessionInput').val().toLowerCase().replace(/\s/g, '-');
 		webrtc.createRoom(val, function(err,name){
 			var newUrl = location.pathname + '?' + name;
